@@ -1,0 +1,57 @@
+.sidebar {
+    -fx-background-color: darkslategrey;
+}
+.sidebar-user-btn{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #9e9e9e;
+}
+.sidebar-btn{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #9e9e9e;
+}
+.sidebar-btn:hover{
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: #9e9e9e;
+    -fx-border-color: rgb(22,169,250);
+    -fx-border-width: 0px 0px 0px 3px;
+}
+.sidebar-btn-icon{
+    -fx-fill: #9e9e9e;
+}
+
+.menu-bar{
+    -fx-background-color: #fff;
+}
+.menu-bar-btns{
+    -fx-background-color: #fff;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+.menu-bar-btns:hover{
+    -fx-background-color: #0099ff;
+}
+
+.menu-bar-btns-icon{
+    -fx-fill: #999;
+}
+.menu-bar-btns:hover .menu-bar-btns-icon{
+    -fx-fill: #fff;
+}
+.menu-bar-search-field{
+    -fx-prompt-text-fill: #b8b1b1;
+    -fx-text-fill: #000;
+
+}
+.menu-bar-search-field-box{
+    -fx-background-color: #fff;
+    -fx-prompt-text-fill: #b8b1b1;
+    -fx-text-fill: #000;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 0px 0px 1px 0px;
+}
+.contentHome{
+    -fx-background-color: chartreuse;
+}
