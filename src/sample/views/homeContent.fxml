@@ -1,12 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXListView?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.HBox?>
 
-<HBox alignment="CENTER_LEFT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="470.0" prefWidth="700.0" styleClass="homeContent" stylesheets="@../stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.HomeController">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="470.0" prefWidth="700.0" styleClass="homeContent" stylesheets="@../stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.HomeController">
    <children>
-      <JFXListView fx:id="listView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="400.0" />
+      <TableView fx:id="tableView" editable="true" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="600.0" HBox.hgrow="ALWAYS">
+        <columns>
+          <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="30.0" text="Id" />
+          <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="95.0" text="Name" />
+            <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="95.0" text="Position" />
+            <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="95.0" text="Address" />
+            <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="95.0" text="E-mail" />
+            <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="95.0" text="Phone" />
+            <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="95.0" text="Date" />
+            <TableColumn maxWidth="1.7976931348623157E308" minWidth="-Infinity" prefWidth="95.0" text="Link" />
+        </columns>
+      </TableView>
+      <!--JFXListView fx:id="listView" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="200.0" styleClass="listView" /-->
    </children>
    <padding>
       <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="470.0" prefWidth="700.0" styleClass="homeContent" stylesheets="@../stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.JobController">
+   <children>
+      <VBox maxHeight="-Infinity" prefHeight="50.0" prefWidth="300.0">
+         <children>
+            <Label styleClass="sidebar-btn" text="Company Name" />
+            <JFXTextField fx:id="nameCompany" />
+         </children>
+      </VBox>
+      <VBox maxHeight="-Infinity" prefHeight="50.0" prefWidth="300.0">
+         <children>
+            <Label styleClass="sidebar-btn" text="Job position" />
+            <JFXTextField fx:id="positionJob" />
+         </children>
+      </VBox>
+      <VBox maxHeight="-Infinity" prefHeight="50.0" prefWidth="300.0">
+         <children>
+            <Label styleClass="sidebar-btn" text="Adress" />
+            <JFXTextField fx:id="address" />
+         </children>
+      </VBox>
+      <VBox maxHeight="-Infinity" prefHeight="50.0" prefWidth="300.0">
+         <children>
+            <Label styleClass="sidebar-btn" text="E-mail" />
+            <JFXTextField fx:id="email" />
+         </children>
+      </VBox>
+      <VBox maxHeight="-Infinity" prefHeight="50.0" prefWidth="300.0">
+         <children>
+            <Label styleClass="sidebar-btn" text="Phone number" />
+            <JFXTextField fx:id="phone" />
+         </children>
+      </VBox>
+      <VBox maxHeight="-Infinity" prefHeight="50.0" prefWidth="300.0">
+         <children>
+            <Label styleClass="sidebar-btn" text="Link" />
+            <JFXTextField fx:id="link" />
+         </children>
+      </VBox>
+      <VBox maxHeight="-Infinity" prefHeight="50.0" prefWidth="300.0">
+         <children>
+            <Label styleClass="sidebar-btn" text="Date" />
+            <JFXDatePicker fx:id="date" maxWidth="1.7976931348623157E308" />
+         </children>
+      </VBox>
+      <HBox prefWidth="200.0">
+         <children>
+            <HBox alignment="CENTER" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" styleClass="sidebar" HBox.hgrow="ALWAYS">
+               <children>
+                  <JFXButton maxWidth="1.7976931348623157E308" minWidth="-Infinity" onAction="#addJob" prefWidth="60.0" styleClass="content-btn" text="Add" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" HBox.hgrow="ALWAYS" />
+            <HBox alignment="CENTER" styleClass="sidebar" HBox.hgrow="ALWAYS">
+               <children>
+                  <JFXButton maxHeight="-Infinity" maxWidth="1.7976931348623157E308" onAction="#returnToHome" styleClass="content-btn" text="Cancel" HBox.hgrow="ALWAYS" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" HBox.hgrow="ALWAYS" />
+         </children>
+         <VBox.margin>
+            <Insets top="20.0" />
+         </VBox.margin>
+      </HBox>
+   </children>
+   <padding>
+      <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+   </padding>
+</VBox>
