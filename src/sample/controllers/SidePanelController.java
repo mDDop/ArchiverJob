@@ -25,7 +25,7 @@ public class SidePanelController {
     }
     @FXML
     public void jobsContent() throws IOException {
-            borderPane.setCenter(FXMLLoader.load(Main.class.getResource("views/jobsContent.fxml")));
+            borderPane.setCenter(FXMLLoader.load(Main.class.getResource("views/addJob.fxml")));
     }
     @FXML
     public void resumesContent() throws IOException {

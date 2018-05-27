@@ -2,64 +2,65 @@ package sample.controllers;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Hyperlink;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import sample.models.JobDTO;
+import sample.persistanceData.DatabaseHandler;
 
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class HomeController implements Initializable {
 
-    private ObservableList<Hyperlink> listHyperlinks = FXCollections.observableArrayList();
+    private ObservableList<JobDTO> listJobDTOs = FXCollections.observableArrayList();
+    ResultSet resultsSelect;
 
-
-
-
-
+    DatabaseHandler databaseHandler;
 
     @FXML
-    ListView listView = new ListView(listHyperlinks);
-
+    TableView<JobDTO> tableView = new TableView<>();
+    TableColumn<JobDTO, String> nameCol = new TableColumn<>("Name");
+    TableColumn<JobDTO, String> positionCol = new TableColumn<>("Position");
+    TableColumn<JobDTO, String> addressCol = new TableColumn<>("Address");
+    TableColumn<JobDTO, String> emailCol = new TableColumn<>("Email");
+    TableColumn<JobDTO, String> phoneCol = new TableColumn<>("Phone");
+    TableColumn<JobDTO, String> linkCol = new TableColumn<>("Link");
+    TableColumn<JobDTO, LocalDate> dateCol = new TableColumn<>("Date");
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Hyperlink link = new Hyperlink();
-        link.setText("http://example.com1");
-        link.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                System.out.println("This link is clicked");
+        databaseHandler = new DatabaseHandler();
+        resultsSelect = databaseHandler.execQuery("SELECT * FROM JOB");
+        try {
+            while (resultsSelect.next()) {
+                JobDTO jobDTO = new JobDTO(
+                        resultsSelect.getString("name_company"),
+                        resultsSelect.getString("position_job"),
+                        resultsSelect.getString("email"),
+                        resultsSelect.getString("address_job"),
+                        resultsSelect.getString("phone"),
+                        LocalDate.parse(resultsSelect.getString("date_sent")),
+                        resultsSelect.getString("link"));
+                listJobDTOs.add(jobDTO);
+                tableView.setItems(listJobDTOs);
+
+                nameCol.setCellValueFactory(new PropertyValueFactory("nameCompany"));
+                positionCol.setCellValueFactory(new PropertyValueFactory("positionJob"));
+                addressCol.setCellValueFactory(new PropertyValueFactory("address"));
+                phoneCol.setCellValueFactory(new PropertyValueFactory("phone"));
+                emailCol.setCellValueFactory(new PropertyValueFactory("email"));
+                dateCol.setCellValueFactory(new PropertyValueFactory("date"));
+                linkCol.setCellValueFactory(new PropertyValueFactory("link"));
+
+                tableView.getColumns().setAll(nameCol, positionCol, addressCol, phoneCol, emailCol, dateCol, linkCol);
             }
-        });
-        listHyperlinks.add(link);
-        Hyperlink link2 = new Hyperlink();
-        link2.setText("http://example.com2");
-        link2.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                System.out.println("This link is clicked");
-            }
-        });
-
-        listHyperlinks.add(link2);
-
-        Hyperlink link3 = new Hyperlink();
-        link3.setText("http://example.com3");
-        link3.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent e) {
-                System.out.println("This link is clicked");
-            }
-        });
-
-        listHyperlinks.add(link3);
-
-        listView.setItems(listHyperlinks);
-        System.out.println(listView.getItems().toString());
-        System.out.println(listHyperlinks.toString());
+        } catch (SQLException e){
+            System.out.println("Exception" + e.getErrorCode() + " message " + e.getMessage());
+        }
     }
 }
