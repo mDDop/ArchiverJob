@@ -19,7 +19,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        borderPane = new BorderPane();
+                borderPane = new BorderPane();
         borderPane.setLeft(FXMLLoader.load(Main.class.getResource("views/sidePanel.fxml")));
         borderPane.setCenter(FXMLLoader.load(Main.class.getResource("views/mainContent.fxml")));
         borderPane.setTop(FXMLLoader.load(Main.class.getResource("views/topMenu.fxml")));
@@ -30,7 +30,6 @@ public class Main extends Application {
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setScene(new Scene(borderPane, 900, 500));
         primaryStage.show();
-
 
         borderPane.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
