@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" prefHeight="30.0" prefWidth="900.0" stylesheets="@../stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.TopMenuController">
+   <children>
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="30.0" prefWidth="200.0" styleClass="sidebar" stylesheets="@../stylesheet.css">
+         <padding>
+            <Insets top="20.0" />
+         </padding>
+      </VBox>
+      <HBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" HBox.hgrow="ALWAYS">
+         <children>
+            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="30.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0">
+                     <children>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <FontAwesomeIconView glyphName="SEARCH" size="15" styleClass="menu-bar-btns-icon">
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
+                              </FontAwesomeIconView>
+                              <TextField fx:id="searchFieldBox" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="100.0" prefWidth="300.0" promptText="Search for jobs" styleClass="menu-bar-search-field-box" HBox.hgrow="ALWAYS" />
+                           </children>
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <JFXButton fx:id="minimizeButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#minimize" prefHeight="30.0" prefWidth="40.0" text=" ">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="MINUS" size="15" styleClass="menu-bar-btns-icon" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="maximizeButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#maximize" prefHeight="30.0" prefWidth="30.0" text=" ">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="SQUARE" size="10" styleClass="menu-bar-btns-icon" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="closeButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#close" prefHeight="30.0" prefWidth="30.0" text=" ">
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="CLOSE" size="15" styleClass="menu-bar-btns-icon" />
+                                 </graphic>
+                              </JFXButton>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</HBox>

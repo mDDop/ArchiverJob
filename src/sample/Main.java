@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -14,22 +15,31 @@ public class Main extends Application {
     private double xOffset = 0;
     private double yOffset = 0;
 
+    public static BorderPane borderPane;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(Main.class.getResource("views/sample.fxml"));
+        borderPane = new BorderPane();
+        borderPane.setLeft(FXMLLoader.load(Main.class.getResource("views/sidePanel.fxml")));
+        borderPane.setCenter(FXMLLoader.load(Main.class.getResource("views/mainContent.fxml")));
+        borderPane.setTop(FXMLLoader.load(Main.class.getResource("views/topMenu.fxml")));
+
+        Parent root = FXMLLoader.load(Main.class.getResource("views/sidePanel.fxml"));
+
         primaryStage.setTitle("JobArchiver");
         primaryStage.initStyle(StageStyle.UNDECORATED);
-        primaryStage.setScene(new Scene(root, 900, 500));
+        primaryStage.setScene(new Scene(borderPane, 900, 500));
         primaryStage.show();
 
-        root.setOnMousePressed(new EventHandler<MouseEvent>() {
+
+        borderPane.setOnMousePressed(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 xOffset = event.getSceneX();
                 yOffset = event.getSceneY();
             }
         });
-        root.setOnMouseDragged(new EventHandler<MouseEvent>() {
+        borderPane.setOnMouseDragged(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent event) {
                 primaryStage.setX(event.getScreenX() - xOffset);

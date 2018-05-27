@@ -4,16 +4,15 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="500.0" prefWidth="900.0" stylesheets="@../stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Controller">
+<HBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="470.0" prefWidth="200.0" stylesheets="@../stylesheet.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.SidePanelController">
    <children>
-      <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="500.0" prefWidth="200.0" styleClass="sidebar" stylesheets="@../stylesheet.css">
+      <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="470.0" prefWidth="200.0" styleClass="sidebar" stylesheets="@../stylesheet.css">
          <children>
             <ImageView fitHeight="150.0" fitWidth="100.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
                <image>
@@ -49,7 +48,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar-btn">
+            <HBox fx:id="jobsButton" alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#jobsContent" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar-btn">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -65,7 +64,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar-btn">
+            <HBox fx:id="resumesButton" alignment="CENTER_LEFT" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#resumesContent" prefHeight="35.0" prefWidth="200.0" styleClass="sidebar-btn">
                <padding>
                   <Insets left="20.0" />
                </padding>
@@ -143,54 +142,6 @@
                </padding>
             </HBox>
          </children>
-         <padding>
-            <Insets top="20.0" />
-         </padding>
       </VBox>
-      <HBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: #ffffff;" HBox.hgrow="ALWAYS">
-         <children>
-            <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="30.0" HBox.hgrow="ALWAYS">
-               <children>
-                  <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0">
-                     <children>
-                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <FontAwesomeIconView glyphName="SEARCH" size="15" styleClass="menu-bar-btns-icon">
-                                 <HBox.margin>
-                                    <Insets right="10.0" />
-                                 </HBox.margin>
-                              </FontAwesomeIconView>
-                              <TextField fx:id="searchFieldBox" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="100.0" prefWidth="300.0" promptText="Search for jobs" styleClass="menu-bar-search-field-box" HBox.hgrow="ALWAYS" />
-                           </children>
-                           <padding>
-                              <Insets left="10.0" right="10.0" />
-                           </padding>
-                        </HBox>
-                        <HBox alignment="CENTER_RIGHT" maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" HBox.hgrow="ALWAYS">
-                           <children>
-                              <JFXButton fx:id="minimizeButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#minimize" prefHeight="30.0" prefWidth="40.0" text=" ">
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="MINUS" size="15" styleClass="menu-bar-btns-icon" />
-                                 </graphic>
-                              </JFXButton>
-                              <JFXButton fx:id="maximizeButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#maximize" prefHeight="30.0" prefWidth="30.0" text=" ">
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="SQUARE" size="10" styleClass="menu-bar-btns-icon" />
-                                 </graphic>
-                              </JFXButton>
-                              <JFXButton fx:id="closeButton" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onAction="#close" prefHeight="30.0" prefWidth="30.0" text=" ">
-                                 <graphic>
-                                    <FontAwesomeIconView glyphName="CLOSE" size="15" styleClass="menu-bar-btns-icon" />
-                                 </graphic>
-                              </JFXButton>
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-                  <VBox fx:id="contentArea" alignment="BOTTOM_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="470.0" />
-               </children>
-            </VBox>
-         </children>
-      </HBox>
    </children>
 </HBox>
